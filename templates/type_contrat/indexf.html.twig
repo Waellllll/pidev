@@ -1,0 +1,35 @@
+{% extends 'basef.html.twig' %}
+
+{% block body %}
+
+    <div class="container-fluid-lg">
+        <div class="title">
+            <h2>Related type Contrat</h2>
+
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% for type_contrat in type_contrats %}
+
+                        <div class="row row-cols-1 row-cols-md-4 g-">
+                            <h5 class="card-text">Nom: {{ type_contrat.Nom  }}</h5>
+                            <h5 class="card-title">prenom: {{ type_contrat.prenom }}</h5>
+                            <p class="card-text">salaire: {{ type_contrat.salaire  }}</p>
+                            <p class="card-text">num tel: {{ type_contrat.numtel }} </p>
+                            <p class="card-text">date signature: {{ type_contrat.contrat }} </p>
+                        </div>
+                        <div class="card-footer">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+
+
+                                </li>
+
+                            </ul>
+                        </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}

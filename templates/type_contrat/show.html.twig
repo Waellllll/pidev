@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeContrat{% endblock %}
+
+{% block body %}
+<div class="page-body">
+
+
+
+
+
+                        <div class="title-header option-title d-sm-flex d-block">
+                            <h1>TypeContrat</h1>
+                        </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_contrat.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ type_contrat.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ type_contrat.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Salaire</th>
+                <td>{{ type_contrat.salaire }}</td>
+            </tr>
+            <tr>
+                <th>Numtel</th>
+                <td>{{ type_contrat.numtel }}</td>
+            </tr>
+            <tr>
+                <th>contrat</th>
+                <td>{{ type_contrat.contrat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_contrat_index') }}">back to list</a>
+
+    <a href="{{ path('app_type_contrat_edit', {'id': type_contrat.id}) }}">edit</a>
+
+    {{ include('type_contrat/_delete_form.html.twig') }}
+
+
+
+
+
+</div>
+{% endblock %}

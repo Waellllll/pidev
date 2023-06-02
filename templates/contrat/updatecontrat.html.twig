@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{form_start(f,{'attr': {'novalidate': 'novalidate'}} )}}
+    <!-- tap on top start -->
+
+    <div class="page-body">
+
+        <!-- New Product Add Start -->
+        <form method="post">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-sm-8 m-auto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-header-2">
+                                            <h5>Contrat Update</h5>
+                                        </div>
+
+                                        <form class="theme-form theme-form-2 mega-form">
+                                            <div class="mb-4 row align-items-center">
+                                                {{ form_row(f.datesignature) }}
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+                                                {{ form_row(f.dateexpiration) }}
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+
+                                                {{ form_row(f.montant) }}
+                                            </div>
+                                            <div class="mb-4 row align-items-center">
+                                                {{ form_row(f.imagecontrat)}}
+
+                                            </div>
+
+                                    </div>
+                                    <input type="submit" value="Update"/>
+                                </div>
+        </form>
+    </div>
+    </div>
+
+    {{ form_end(f) }}
+{% endblock %}

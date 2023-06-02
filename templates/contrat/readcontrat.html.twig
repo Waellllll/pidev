@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block javascripts %}
+        <script language = "javascript" src = "https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    {% endblock %}
+    {% block stylesheets %}
+        <style>
+            #simpleform {
+                width:600px;
+                border:2px solid grey;
+                padding:14px;
+            }
+            #simpleform label {
+                font-size:12px;
+                float:left;
+                width:300px;
+                text-align:right;
+                display:block;
+            }
+            #simpleform span {
+                font-size:11px;
+                color:grey;
+                width:100px;
+                text-align:right;
+                display:block;
+            }
+            #simpleform input {
+                border:1px solid grey;
+                font-family:verdana;
+                font-size:14px;
+                color:grey;
+                height:24px;
+                width:250px;
+                margin: 0 0 20px 10px;
+            }
+            #simpleform button {
+                clear:both;
+                margin-left:250px;
+                background:grey;
+                color:#FFFFFF;
+                border:solid 1px #666666;
+                font-size:16px;
+            }
+        </style>
+
+    {% endblock %}
+
+
+
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="title-header option-title d-sm-flex d-block">
+                            <h5>Contrat List</h5>
+
+                        </div>
+                        <div>
+                            <div class="table-responsive">
+                                <table class="table all-package theme-table table-product" id="table_id">
+                                    <thead>
+                                    <tr>
+
+
+                                        <th>Id</th>
+                                        <th> date signature</th>
+                                        <th> date expiration</th>
+
+                                        <th> montant</th>
+                                        <th>image</th>
+                                    </tr>
+                                    </thead>
+
+
+                                    <div class="example-wrapper">
+
+
+
+                                        {%  for c in  contrat %}
+                                        <tr>
+                                            <td>  {{ c.id }}</td>
+                                            <td>   {{ c.datesignature|date("d/m/Y") }} </td>
+                                            <td>   {{ c.dateexpiration|date("d/m/Y")}} </td>
+
+                                            <td>   {{ c.montant }} </td>
+                                            <td>
+                                                {% if c.imagecontrat %}
+                                                    <img src="{{ asset('/images/product/' ~ c.imagecontrat) }}" alt="Uploaded image">
+
+                                                {% endif %}
+                                            </td>
+                                            <td> <a href="{{ path('contrat_delete', {id:c.id}) }}">Delete </a>
+                                                <a href="{{ path('contrat_update', {id:c.id}) }}">Update </a>
+
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                </table>
+                                <form action="{{ path('contrat_add') }}">
+                                    <button class="btn  btn--yes btn-primary">Add contrat</button>
+                                </form>
+
+
+
+{% endblock %}

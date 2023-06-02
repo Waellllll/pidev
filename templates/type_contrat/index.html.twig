@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeContrat index{% endblock %}
+
+{% block body %}
+    {% block javascripts %}
+        <script language = "javascript" src = "https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    {% endblock %}
+    {% block stylesheets %}
+        <style>
+            #simpleform {
+                width:600px;
+                border:2px solid grey;
+                padding:14px;
+            }
+            #simpleform label {
+                font-size:12px;
+                float:left;
+                width:300px;
+                text-align:right;
+                display:block;
+            }
+            #simpleform span {
+                font-size:11px;
+                color:grey;
+                width:100px;
+                text-align:right;
+                display:block;
+            }
+            #simpleform input {
+                border:1px solid grey;
+                font-family:verdana;
+                font-size:14px;
+                color:grey;
+                height:24px;
+                width:250px;
+                margin: 0 0 20px 10px;
+            }
+            #simpleform button {
+                clear:both;
+                margin-left:250px;
+                background:grey;
+                color:#FFFFFF;
+                border:solid 1px #666666;
+                font-size:16px;
+            }
+        </style>
+
+    {% endblock %}
+
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="title-header option-title d-sm-flex d-block">
+                            <h5>Type Contrat List</h5>
+
+                        </div>
+                        <div>
+                            <div class="table-responsive">
+                                <table class="table all-package theme-table table-product" id="table_id">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nom</th>
+                                        <th>Prenom</th>
+                                        <th>Salaire</th>
+                                        <th>Numtel</th>
+                                        <th>date signature contrat</th>
+                                        <th>actions</th>
+                                    </tr>
+                                    </thead>
+
+
+                                    <div class="example-wrapper">
+
+
+
+                                        {% for type_contrat in type_contrats %}
+                                            <tr>
+                                                <td>{{ type_contrat.id }}</td>
+                                                <td>{{ type_contrat.Nom }}</td>
+                                                <td>{{ type_contrat.prenom }}</td>
+                                                <td>{{ type_contrat.salaire }}</td>
+                                                <td>{{ type_contrat.numtel }}</td>
+                                                <td>{{ type_contrat.contrat }}</td>
+                                                <td>
+                                                    <a href="{{ path('app_type_contrat_show', {'id': type_contrat.id}) }}">show</a>
+                                                    <a href="{{ path('app_type_contrat_edit', {'id': type_contrat.id}) }}">edit</a>
+                                                </td>
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="6">no records found</td>
+                                            </tr>
+                                        {% endfor %}
+                                </table>
+                                <a href="{{ path('app_type_contrat_new') }}">Create new</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
