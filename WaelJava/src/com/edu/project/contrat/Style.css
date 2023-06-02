@@ -1,0 +1,14 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+ .box1{
+        -fx-background-color:#fff;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.3), 8,0,0,0);
+        -fx-border-radius: 50 50 50 50;
+        -fx-background-radius: 20 10 20 10;
+    }
